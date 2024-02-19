@@ -4,15 +4,14 @@ import React, { useEffect, useState } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 export default function Todo() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState("");
-  const [completedTodos, setCompletedTodos] = useState([]);
+  const [completedTodos, setCompletedTodos] = useState<string[]>([]);
 
   const handleTodoSubmit = (e: any) => {
     e.preventDefault();
-    if (!inputValue.trim()) return;
-
     setTodos((prev) => [...prev, inputValue]);
+
     setInputValue("");
   };
 
@@ -29,7 +28,6 @@ export default function Todo() {
       setCompletedTodos((prev) => [...prev, completedTodo]);
     }
   };
-
 
   return (
     <div
